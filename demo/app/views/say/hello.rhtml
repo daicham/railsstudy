@@ -1,20 +1,11 @@
-<ul>
-  <li>足し算： <%= 1+2 %></li>
-  <li>連結： <%= "cow" + "boy" %></li>
-  <li>1時間後の時刻：<%= 1.hour.from_now %></li>
-</ul>
-<p>
-<% 3.times do %>
-ホー!<br/>
-<% end %>
-メリークリスマス!
-</p>
-<p>
-<% 3.downto(1) do |count| %>
-<%= count %> ...<br/>
-<% end %>
-発射！
-</p>
-<p>
-Eメール：<%= h("foo & bar <foobar@example.com>") %>
-</p>
+<html>
+  <head>
+    <title>hello</title>
+  </head>
+  <body>
+    <h1>Rails からこんにちは!</h1>
+    <p>
+      現在時刻は、<%= Time.now %>です。
+    </p>
+  </body>
+</html>
