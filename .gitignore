@@ -1,1 +1,2 @@
 *.log
+demo/db/development.sqlite3
