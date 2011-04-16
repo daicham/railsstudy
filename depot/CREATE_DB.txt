@@ -1,0 +1,6 @@
+create database depot_development default character set utf8;
+create database depot_test default character set utf8;
+create database depot_production default character set utf8;
+grant all on depot_development.* to 'daicham'@'localhost';
+grant all on depot_test.* to 'daicham'@'localhost';
+grant all on depot_production.* to 'depot'@'localhost' identified by 'depot'
