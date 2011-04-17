@@ -18,6 +18,11 @@
   <%=h @product.price %>
 </p>
 
+<p>
+  <b>Date available:</b>
+  <%=h @product.date_available %>
+</p>
+
 
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>

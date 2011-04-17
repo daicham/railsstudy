@@ -20,6 +20,10 @@
     <%= f.text_field :price %>
   </p>
   <p>
+    <%= f.label :date_available %><br />
+    <%= f.datetime_select :date_available %>
+  </p>
+  <p>
     <%= f.submit 'Update' %>
   </p>
 <% end %>
