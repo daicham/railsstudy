@@ -1,24 +1,27 @@
-<h1>Listing products</h1>
+<h1>商品一覧</h1>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Description</th>
-    <th>Image url</th>
-    <th>Price</th>
-    <th>Date available</th>
-  </tr>
-
-<% @products.each do |product| %>
-  <tr>
-    <td><%=h product.title %></td>
-    <td><%=h product.description %></td>
-    <td><%=h product.image_url %></td>
-    <td><%=h product.price %></td>
-    <td><%=h product.date_available %></td>
-    <td><%= link_to 'Show', product %></td>
-    <td><%= link_to 'Edit', edit_product_path(product) %></td>
-    <td><%= link_to 'Destroy', product, :confirm => 'Are you sure?', :method => :delete %></td>
+<table cellpadding="5", cellspacing="0">
+<%
+odd_or_even = 0
+@products.each do |product|
+  odd_or_even = 1 - odd_or_even
+%>
+  <tr valign="top" class="ListLine<%= odd_or_even %>">
+    <td>
+      <img width="60" height="70" src="<%= product.image_url %>">
+    </td>
+    <td width="60%">
+      <span class="ListTitle"><%=h product.title %></span><br />
+      <%= h(truncate(product.description, 80)) %>
+    </td>
+    <td align="right">
+      <%=h product.date_available.strftime("%y-%m-%d") %><br />
+      <strong>$<%= sprintf("%0.2f", product.price) %></strong>
+    </td>
+    <td class="ListAction">
+      <%= link_to '表示', :action => 'show', :id =>  product %><br />
+      <%= link_to '編集', :action => 'edit', :id => product %><br />
+      <%= link_to '破棄', { :action => 'Destroy', :id => product }, :confirm => '本当に破棄しますか?'%></td>
   </tr>
 <% end %>
 </table>
