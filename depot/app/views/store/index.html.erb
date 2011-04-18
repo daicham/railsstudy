@@ -1,22 +1,13 @@
-<table cellpadding="5" cellspacing="0">
 <% @products.each do |product| %>
-  <tr valign="top">
-    <td>
-      <img src="<%= product.image_url %>" />
-    </td>
-    <td width="450">
-      <h3><%= h product.title %></h3>
-      <small>
-        <%= product.description %>
-      </small>
-      <br />
-      <strong>$<%= sprintf("%0.2f", product.price) %></strong>
+  <div class="catalogentry">
+    <img src="<%= product.image_url %>" />
+    <h3><%= h product.title %></h3>
+    <%= product.description %>
+    <br />
+    <span class="catalogprice">$<%= sprintf("%0.2f", product.price) %></span>
       <%= link_to 'カートに入れる',
-                  :action => 'add_to_cart',
-                  :id => product %>
-      <br />
-    </td>
-  </tr>
-  <tr><td class="2"><hr/></td></tr>
+                  {:action => 'add_to_cart', :id => product},
+                  :class => 'addtocart' %><br />
+  <div class="separator">&nbsp;</div>
 <% end %>
-</table>
+<%= link_to "カートを表示する", :action => "display_cart" %>

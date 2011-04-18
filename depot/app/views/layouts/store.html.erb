@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <title>Pragprog Books オンラインストア</title>
+    <%= stylesheet_link_tag "depot", :media => "all" %>
+  </head>
+  <body>
+    <div id="banner">
+      <img src="/images/logo.png">
+      <%= @page_title || "Pragmatic Bookshelf" %>
+    </div>
+    <div id="columns">
+      <div id="side">
+        <a href="http://localhost:3000/">ホーム</a><br />
+        <a href="http://localhost:3000/">FAQ</a><br />
+        <a href="http://localhost:3000/">ニュース</a><br />
+        <a href="http://localhost:3000/">お問い合わせ</a><br />
+      </div>
+      <div id="main">
+        <%= @content_for_layout %>
+      </div>
+    </div>
+  </body>
+</html>
