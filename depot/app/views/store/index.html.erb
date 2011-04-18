@@ -1,2 +1,22 @@
-<h1>Store#index</h1>
-<p>Find me in app/views/store/index.html.erb</p>
+<table cellpadding="5" cellspacing="0">
+<% @products.each do |product| %>
+  <tr valign="top">
+    <td>
+      <img src="<%= product.image_url %>" />
+    </td>
+    <td width="450">
+      <h3><%= h product.title %></h3>
+      <small>
+        <%= product.description %>
+      </small>
+      <br />
+      <strong>$<%= sprintf("%0.2f", product.price) %></strong>
+      <%= link_to 'カートに入れる',
+                  :action => 'add_to_cart',
+                  :id => product %>
+      <br />
+    </td>
+  </tr>
+  <tr><td class="2"><hr/></td></tr>
+<% end %>
+</table>
