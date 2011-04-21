@@ -1,4 +1,14 @@
 <h1>カートの表示</h1>
-<p>
-  カートには <%= @items.size %> 個の商品が入っています。
-</p>
+<table>
+<%
+for item in @items
+  product = item.product
+-%>
+  <tr>
+    <td><%= item.quantity %></td>
+    <td><%= h product.title %></td>
+    <td align="right"><%= item.unit_price %></td>
+    <td align="right"><%= item.unit_price * item.quantity %></td>
+  </tr>
+<% end -%>
+</table>
