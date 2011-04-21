@@ -1,5 +1,20 @@
-<h1>カートの表示</h1>
-<table>
+<div id="cartmenu">
+  <ul>
+    <li><%= link_to 'ショッピングを続ける', :action => "index" %></li>
+    <li><%= link_to 'カートを空にする', :action => "empty_cart" %></li>
+    <li><%= link_to 'チェックアウトする', :action => "checkout" %></li>
+  </ul>
+</div>
+<table cellpadding="10" cellspacing="0">
+  <tr class="carttitle">
+    <td rowspan="2">数量</td>
+    <td rowspan="2">説明</td>
+    <td colspan="2">価格</td>
+  </tr>
+  <tr class="carttitle">
+    <td>単価</td>
+    <td>合計</td>
+  </tr>
 <%
 for item in @items
   product = item.product
@@ -10,5 +25,9 @@ for item in @items
     <td align="right"><%= item.unit_price %></td>
     <td align="right"><%= item.unit_price * item.quantity %></td>
   </tr>
-<% end -%>
+<% end %>
+  <tr>
+    <td colspan="3" align="right"><strong>総計:</strong></td>
+    <td id="totalcell"><%= @cart.total_price %></td>
+  </tr>
 </table>
