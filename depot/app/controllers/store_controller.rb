@@ -20,6 +20,11 @@ class StoreController < ApplicationController
       redirect_to(:action => 'index')
     end
   end
+  def empty_cart
+    find_cart.empty!
+    flash[:notice] = "カートが空になりました"
+    redirect_to(:action => 'index')
+  end
   private
   def find_cart
     session[:cart] ||= Cart.new

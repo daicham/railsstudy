@@ -15,4 +15,8 @@ class Cart
     end
     @total_price += product.price
   end
+  def empty!
+    @items = []
+    @totall_price = 0.0
+  end
 end
