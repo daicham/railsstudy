@@ -15,6 +15,10 @@ class StoreController < ApplicationController
   def display_cart
     @cart = find_cart
     @items = @cart.items
+    if @items.empty?
+      flash[:notice] = "現在、カートには商品が入っていません"
+      redirect_to(:action => 'index')
+    end
   end
   private
   def find_cart
