@@ -16,6 +16,9 @@
         <a href="http://localhost:3000/">お問い合わせ</a><br />
       </div>
       <div id="main">
+        <% if flash[:notice] -%>
+          <div id="notice"><%= flash[:notice] %></div>
+        <% end -%>
         <%= @content_for_layout %>
       </div>
     </div>

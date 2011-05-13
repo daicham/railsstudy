@@ -7,6 +7,10 @@ class StoreController < ApplicationController
     @cart = find_cart
     @cart.add_product(product)
     redirect_to(:action => 'display_cart')
+  rescue
+    logger.error("無効な商品 #{params[:id]} にアクセスしようとしました")
+    flash[:notice] = '無効な商品です'
+    redirect_to(:action => 'index')
   end
   def display_cart
     @cart = find_cart
