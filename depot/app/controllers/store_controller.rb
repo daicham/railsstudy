@@ -9,24 +9,25 @@ class StoreController < ApplicationController
     redirect_to(:action => 'display_cart')
   rescue
     logger.error("無効な商品 #{params[:id]} にアクセスしようとしました")
-    flash[:notice] = '無効な商品です'
-    redirect_to(:action => 'index')
+    redirect_to_index('無効な商品です')
   end
   def display_cart
     @cart = find_cart
     @items = @cart.items
     if @items.empty?
-      flash[:notice] = "現在、カートには商品が入っていません"
-      redirect_to(:action => 'index')
+      redirect_to_index('現在、カートには商品が入っていません')
     end
   end
   def empty_cart
     find_cart.empty!
-    flash[:notice] = "カートが空になりました"
-    redirect_to(:action => 'index')
+    redirect_to_index('カートが空になりました')
   end
   private
   def find_cart
     session[:cart] ||= Cart.new
+  end
+  def redirect_to_index(msg = nil)
+    flash[:notice] = msg if msg
+    redirect_to(:action => 'index')
   end
 end
