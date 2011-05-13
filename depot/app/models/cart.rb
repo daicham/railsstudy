@@ -5,7 +5,7 @@ class Cart
     empty!
   end
   def add_product(product)
-    item = @items.find { |i| i.product_id = product.id }
+    item = @items.find { |i| i.product_id == product.id }
     if item
       item.quantity += 1
     else
