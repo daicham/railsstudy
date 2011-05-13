@@ -4,7 +4,7 @@
     <h3><%= h product.title %></h3>
     <%= product.description %>
     <br />
-    <span class="catalogprice">$<%= sprintf("%0.2f", product.price) %></span>
+    <span class="catalogprice"><%= fmt_dollars(product.price) %></span>
       <%= link_to 'カートに入れる',
                   {:action => 'add_to_cart', :id => product},
                   :class => 'addtocart' %><br />
