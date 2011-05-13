@@ -2,8 +2,7 @@ class Cart
   attr_reader :items
   attr_reader :total_price
   def initialize
-    @items = []
-    @total_price = 0.0
+    empty!
   end
   def add_product(product)
     item = @items.find { |i| i.product_id = product.id }
@@ -17,6 +16,6 @@ class Cart
   end
   def empty!
     @items = []
-    @totall_price = 0.0
+    @total_price = 0.0
   end
 end
